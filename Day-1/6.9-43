@@ -1,0 +1,33 @@
+#include<iostream>
+#include<conio.h>
+#define n 256
+using namespace std;
+
+int main()
+{
+    char a[n],b[n];
+    char *mass;
+    int f=1;
+    cout<<"Vvedit ryadok:"<<endl;
+    gets(a);
+    mass=strtok(a," ,.");
+	if(mass!=NULL)
+		mass=strtok(NULL," ,.");
+	strrev(mass);
+	strcpy(b,mass);
+	strcat(b," ");
+	mass=strtok(NULL," ,.");
+	while(mass!=NULL)
+	{	
+		if((f%2)==0)
+		{
+			strrev(mass);
+			strcat(b,mass);
+			strcat(b," ");
+		}
+		f++;
+		mass=strtok(NULL," ,.");
+	}
+    cout<<b;
+    getch();
+}

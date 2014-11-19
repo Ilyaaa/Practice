@@ -1,0 +1,19 @@
+#include<iostream>
+#include<conio.h>
+#include<math.h>
+using namespace std;
+void fx()
+{
+       float y,pi=3.14,h=0.5,a=-2*pi,b=2*pi;
+       for(float i=a;i<=b;i=i+h)
+       {
+                 y=0.1*pow(tan(i),2)-sin(4*i);
+                 cout<<"Y: "<<y<<endl;
+       }
+}
+
+int main()
+{
+    fx();
+    getch();
+}

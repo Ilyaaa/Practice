@@ -1,0 +1,33 @@
+#include<iostream>
+#include<conio.h>
+#define n 256
+using namespace std;
+
+int main ()
+{
+    char mass[n],mass2[n],mass3[n],mass4[n],s=':';
+    cout<<"Vvedit masiv:"<<endl;
+    gets(mass);
+    for(int i=0;i<n;i++)
+    {
+            if(mass[i]==':')
+                            i=n;
+            mass2[i]=mass[i];
+    }
+    cout<<"Do 1 dvokrapki:"<<endl;
+    puts(mass2);
+    int k=strlen(mass2);
+    for(int i=0;i<n;i++)
+            mass3[i]=mass[i+k+1];
+    cout<<"Pislya 1 dvokrapki:"<<endl;
+    puts(mass3);
+    for(int i=0;i<n;i++)
+    {
+            if(mass[i]==':')
+                            i=n;
+            mass4[i]=mass3[i];
+    }
+    cout<<"Pislya 1 dvokrapki do 2:"<<endl;
+    puts(mass4);
+    getch();
+}

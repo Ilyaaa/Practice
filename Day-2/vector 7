@@ -1,0 +1,60 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+void sort(int *mas, int size)
+{
+    double temp;
+    for(int i=0;i<size-1;i++)
+        for (int k=0;k<size-1;k++)
+            if(mas[k]>mas[k+1])
+            {
+                temp=mas[k];
+                mas[k]=mas[k+1];
+                mas[k+1]=temp;
+            }
+}
+
+int main()
+{
+    int m,n;
+    cout<<"Vvedit rozmir 1 masiva: ";   cin>>m;
+    cout<<"Vvedit rozmir 2 masiva(rozmir 1 masiva > rozmir 2 masiva): ";   cin>>n;
+    int s=m+n;
+    if(n>m)
+    {
+           cout<<"Error";
+           getch();
+           exit(0);
+    }
+    int *a=new int[m];
+    int *b=new int[n];
+    int *c=new int[s];
+    srand(time(0));
+    for(int i=0;i<m;i++)
+    {
+            a[i]=rand()%20;
+    }
+    sort(a,m);
+    cout<<"Massiv 1:"<<endl;
+    for(int i=0;i<m;i++)
+    {
+            c[i]=a[i];
+            cout<<a[i]<<" ";
+    }
+    cout<<endl<<"Massiv 2:"<<endl;
+    for(int i=0;i<n;i++)
+    {
+            b[i]=rand()%20;
+            c[i+m]=b[i];
+            cout<<b[i]<<" ";
+    }
+    sort(c,s);
+    cout<<endl<<"Masiv C:"<<endl;
+    for(int i=0;i<s;i++)
+            cout<<c[i]<<" ";
+    delete a;
+    delete b;
+    delete c;
+    getch();
+}

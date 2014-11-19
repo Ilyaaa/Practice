@@ -1,0 +1,26 @@
+#include<iostream>
+#include<conio.h>
+#define n 256
+using namespace std;
+
+int main()
+{
+    char a[n],b[n];
+    cout<<"Vvedit ryadok:"<<endl;
+    gets(a);
+    int f=strlen(a);
+    for(int i=0;i<n;i++)
+    {
+            f=f-1;
+            b[i]=a[f];
+    }
+    char* s=strtok(b," ");
+    int e=strlen(s),k=0;
+    for(int i=0;i<e;i++)
+    {
+            if(s[i]=='k')
+            {k=k+1;}
+    }
+    cout<<"V ostannyomu slovi "<<k<<" liter k";
+    getch();
+}

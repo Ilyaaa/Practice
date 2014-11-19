@@ -1,0 +1,55 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+int main()
+{
+    int m,n,min=0;
+    cout<<"Vvedit kilkist ryadkiv: ";   cin>>n;
+    cout<<"Vvedit kilkist stovpchikiv: ";   cin>>m;
+    
+    int **a = new int *[n];
+    for(int i=0; i<n; i++)
+             a[i] = new int[m];
+    srand(time(0));
+    cout<<"Matrix:"<<endl;
+    for(int i=0; i<n; i++)
+    {
+            for(int j=0; j<m; j++)
+            {
+                    a[i][j]=rand()%10;
+                    cout<<a[i][j]<<" ";
+                    if(a[i][j]>min)
+                                   min=a[i][j];
+            }
+            cout<<endl;
+    } 
+    cout<<"Podmatritsa:"<<endl;               
+    for(int i=0; i<(n-1); i++)
+    {
+            for(int j=0; j<(m-1); j++)
+            {
+                    cout<<a[i][j]<<" ";
+                    if(a[i][j]<min)
+                                   min=a[i][j];
+            }
+            cout<<endl;
+    } 
+    cout<<"Minimalniy element podmatritci: "<<min<<endl;
+    cout<<"Zamina:"<<endl;
+    for(int i=0; i<(n-1); i++)
+    {
+            for(int j=0; j<(m-1); j++)
+                    a[i][j]=min;
+    } 
+     for(int i=0; i<n; i++)
+    {
+            for(int j=0; j<m; j++)
+                    cout<<a[i][j]<<" ";
+            cout<<endl;
+    } 
+    for(int i=0; i<n; i++)
+             delete [] a[i];
+    delete [] a;
+    getch();
+}

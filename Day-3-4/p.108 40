@@ -1,0 +1,33 @@
+#include<iostream>
+#include<conio.h>
+using namespace std;
+
+float sum(float a,float h,int n)
+{
+     float sum=0; 
+     for(int i=0;i<n;i++)
+     {
+             a=a*h;
+             sum=sum+a;
+     }
+     return sum;
+}
+
+float geom(float a,float h,int n)
+{
+     for(int i=0;i<n;i++)
+             a=a*h;
+     return a;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "Russian");
+    int a,h,n;
+    cout<<"Ââåäèòe 1 åëåìåíò ïðîãðåñèè: "; cin>>a;
+    cout<<"Ââåäèòå çíàìåíàòåëü: "; cin>>h;
+    cout<<"Ââåäèòå íîìåð åëåìåíòà, êîòîðûé íóæíî íàéòè: "; cin>>n;
+    cout<<"N="<<geom(a,h,n);
+    cout<<endl<<"Ñóìà="<<sum(a,h,n);
+    getch();
+}

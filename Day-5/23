@@ -1,0 +1,49 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+using namespace std;
+
+struct sob
+{
+       int year;
+       int n;
+       int ch;
+};
+
+int main ()
+{
+    setlocale(LC_ALL, "Russian");
+    srand(time(0));
+    sob mass[20];
+    for(int i=1;i<=20;i++)
+    {
+            mass[i].year=1931+rand()%(2014-1931);
+            mass[i].n=1+rand()%11;
+            mass[i].ch=1+rand()%29;
+            cout<<"Ñîáûòèå "<<i<<":\t"<<mass[i].ch<<"."<<mass[i].n<<"."<<mass[i].year<<"ãîä"<<endl;
+    }
+    int a,b;
+    cout<<"Ââåäèòå íîìåðà ñðàâíèâàåìûõ ñîáûòèé:"<<endl<<"1: "; cin>>a;
+    cout<<"2: "; cin>>b;
+    if(mass[a].year>mass[b].year)
+        cout<<"Ñîáûòèå "<<a<<" ïðîèçîøëî ïîçæå.";
+    else if(mass[a].year==mass[b].year)
+        {
+             if(mass[a].n>mass[b].n)
+                  cout<<"Ñîáûòèå "<<a<<" ïðîèçîøëî ïîçæå.";
+             else if(mass[a].n==mass[b].n)
+             {
+                  if(mass[a].ch>mass[b].ch)
+                       cout<<"Ñîáûòèå "<<a<<" ïðîèçîøëî ïîçæå.";
+                  else if(mass[a].ch=mass[b].ch)
+                       cout<<"Ñîáûòèÿ ïðîèçîøëè îäíîâðåìåííî.";
+                  else
+                      cout<<"Ñîáûòèå "<<b<<" ïðîèçîøëî ïîçæå.";
+             } 
+             else
+                  cout<<"Ñîáûòèå "<<b<<" ïðîèçîøëî ïîçæå.";
+        }
+    else
+        cout<<"Ñîáûòèå "<<b<<" ïðîèçîøëî ïîçæå.";
+    getch ();
+}

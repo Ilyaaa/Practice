@@ -1,0 +1,44 @@
+#include <iostream>
+#include <fstream>
+#include <conio.h>
+#include <cstring>
+using namespace std;
+
+void sort(int *mas, int size)
+{
+    double temp;
+    for(int i=0;i<size-1;i++)
+        for (int k=0;k<size-1;k++)
+            if(mas[k]>mas[k+1])
+            {
+                temp=mas[k];
+                mas[k]=mas[k+1];
+                mas[k+1]=temp;
+            }
+}
+
+int main(){
+
+	char str[100];
+	cout << "Input str: ";
+	gets(str);
+    int code[100],k=strlen(str),sum=0;
+	for(int i=0; i<k; i++)
+    {
+            code[i]=(int)(str[i]);
+	}
+	cout<<"Code:\n\t";
+	sort(code,k);
+	for(int i=0; i<k; i++)
+    {
+            cout<<" "<<code[i];
+	}
+	int dob=code[0];
+	for(int i=1; i<k; i++)
+    {
+            dob=dob*code[i];
+    }
+	cout<<"\nDobytok="<<dob;
+	
+	getch();
+}

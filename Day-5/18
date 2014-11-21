@@ -1,0 +1,35 @@
+#include <iostream>
+#include <conio.h>
+#include <stdio.h>
+using namespace std;
+
+struct telo
+{
+       double m;
+       double v;
+};
+
+int main ()
+{
+    double p[30],j;
+    setlocale(LC_ALL, "Russian");
+    telo mass[30];
+    for(int i=0;i<30;i++)
+    {
+            cout<<"Òåëî "<<i+1<<":"<<endl<<"Ìàñà="; cin>>mass[i].m;
+            cout<<"Îáúåì="; cin>>mass[i].v;
+            p[i]=mass[i].m/mass[i].v;
+            cout<<"Ïëîòíîñòü="<<p[i]<<endl;
+    }
+    double min=p[0];
+    for(int i=0;i<30;i++)
+    {
+            if(p[i]<min)
+            {
+                        min=p[i];
+                        j=i+1;
+            }
+    }
+    cout<<endl<<"Ìèíèìàëüíóþ ïëîòíîñòü èìååò Òåëî "<<j<<": "<<min;
+    getch ();
+}

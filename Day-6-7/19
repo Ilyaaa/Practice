@@ -1,0 +1,46 @@
+#include<iostream>
+#include<fstream>
+#include<conio.h>
+#include<stdio.h>
+using namespace std;
+
+int main() 
+{
+    setlocale(LC_ALL, "Russian");
+    srand(time(0));
+    ofstream fout;
+    fout.open("var a.txt");
+    for(int i=0;i<20;i++)
+              fout<<rand()%100<<" ";
+    fout.close();
+    int file[20];
+    ifstream fin("var a.txt");
+    for(int i=0;i<20;i++)
+                fin>>file[i];
+    fin.close();
+    cout<<"Çàïèñàíî â ôàéë var a.txt:"<<endl;
+    for(int i=0;i<20;i++)
+                cout<<file[i]<<" ";
+    cout<<endl<<"Åëåìåíòû ñ íå÷åòíûì ïîðÿäêîâûì íîìåðîì èç ôàéëà var a.txt:"<<endl;
+    for(int i=0;i<20;i=i+2)
+                cout<<file[i]<<" ";
+    
+    ofstream out;
+    int n=5+rand()%295;
+    out.open("var b.txt");
+    for(int i=0;i<n;i++)
+              out<<rand()%100<<" ";
+    out.close();
+    int fileb[n];
+    ifstream in("var b.txt");
+    for(int i=0;i<n;i++)
+                in>>fileb[i];
+    in.close();
+    cout<<"Çàïèñàíî â ôàéë var b.txt:"<<endl;
+    for(int i=0;i<n;i++)
+                cout<<fileb[i]<<" ";
+    cout<<endl<<"Åëåìåíòû ñ íå÷åòíûì ïîðÿäêîâûì íîìåðîì èç ôàéëà var b.txt:"<<endl;
+    for(int i=0;i<n;i=i+2)
+                cout<<fileb[i]<<" ";
+    getch();
+}

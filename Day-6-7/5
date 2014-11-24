@@ -1,0 +1,59 @@
+#include<iostream>
+#include<fstream>
+#include<conio.h>
+#include<stdio.h>
+using namespace std;
+
+int main()
+{
+    remove("f.txt");
+    remove("g.txt");
+    setlocale(LC_ALL, "Russian");
+    int n,s=0;
+    cout<<"Ââåäèòå êîëè÷åñòâî åëåìåíòîâ: "; cin>>n;
+    srand(time(0));
+    ofstream fout;
+    fout.open("f.txt");
+    for(int i=0;i<n;i++)
+            fout<<rand()%50<<" ";
+    fout.close();
+    int file[n];
+    ifstream fin("f.txt");
+    for(int i=0;i<n;i++)
+                fin>>file[i];
+    fin.close();
+    cout<<"Çàïèñàíî â f.txt:"<<endl;
+    for(int i=0;i<n;i++)
+            cout<<file[i]<<" ";
+    for(int i=0;i<n;i++)
+    {
+                for(int j=0;j<n;j++)
+                {
+                        if(file[i]==file[j]&&i!=j)
+                               file[i]=0;                  
+                }
+                if(file[i]==0)
+                {
+                              for(int k=i;k<=n;k++)
+                                      file[k]=file[k+1];
+                              s++;
+                }       
+    }
+    cout<<endl;
+    ofstream out;
+    out.open("g.txt");
+    for(int i=0;i<(n-s);i++)
+    {
+            out<<file[i]<<" ";
+    }
+    out.close();
+    int fileg[n-s];
+    ifstream in("g.txt");
+    for(int i=0;i<(n-s);i++)
+                in>>fileg[i];
+    in.close();
+    cout<<"Çàïèñàíî â g.txt:"<<endl;
+    for(int i=0;i<(n-s);i++)
+            cout<<fileg[i]<<" ";
+    getch();
+}

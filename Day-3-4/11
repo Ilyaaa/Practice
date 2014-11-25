@@ -1,0 +1,44 @@
+#include<iostream.h>
+#include<cmath>
+#include<conio.h>
+
+float S_Treug(float x1,float y1,float x2,float y2,float x3,float y3){
+      float S;
+      S=0.5*((x1-x3)*(y2-y3)-(x2-x3)*(y1-y3));
+      return S;
+      }
+      
+int main(){
+    setlocale(LC_ALL,"");
+    float S,S1,S2,S3,x1,y1,x2,y2,x3,y3,x4,y4,x5,y5;
+    
+    cout<<"Ââåäèòå êîîðäèíàòû ïåðâîé òî÷êè:"<<endl<<"X=";
+    cin>>x1;
+    cout<<"Y=";
+    cin>>y1;
+    cout<<"Ââåäèòå êîîðäèíàòû âòîðîé òî÷êè:"<<endl<<"X=";
+    cin>>x2;
+    cout<<"Y=";
+    cin>>y2;
+    cout<<"Ââåäèòå êîîðäèíàòû òðåòüåé òî÷êè:"<<endl<<"X=";
+    cin>>x3;
+    cout<<"Y=";
+    cin>>y3;
+    cout<<"Ââåäèòå êîîðäèíàòû ÷åòâ¸ðòîé òî÷êè:"<<endl<<"X=";
+    cin>>x4;
+    cout<<"Y=";
+    cin>>y4;
+    cout<<"Ââåäèòå êîîðäèíàòû ïÿòîé òî÷êè:"<<endl<<"X=";
+    cin>>x5;
+    cout<<"Y=";
+    cin>>y5;
+    
+    S1=S_Treug(x1,y1,x2,y2,x3,y3);
+    S2=S_Treug(x1,y1,x3,y3,x4,y4);
+    S3=S_Treug(x1,y1,x4,y4,x5,y5);
+    S=S1+S2+S3;
+    
+    cout<<"\n-----------------------------------------------------\nÏëîùàäè òðåóãîëüíèêîâ:\nS1="<<S1<<"/nS2="<<S2<<"/nS3="<<S3<<"/nÏëîùàäü ïÿòèóãîëüíèêà = "<<S;
+    getch();
+    return 0;
+}

@@ -1,0 +1,28 @@
+#include<iostream.h>
+#include<conio.h>
+
+long fact(int n){
+     if(n>0) return n*fact(n-1);
+     return 1;
+     }
+     
+int main(){
+    setlocale(LC_ALL,"");
+    int n,m;
+    float F;
+    
+    cout<<"Ââåäèòå m è n: ";
+    cin>>m>>n;
+    
+    if(m<0 || n<0){
+           cout<<"Îøèáêà! Ââåäåíû ìèíóñîâûå ÷èñëà.";
+           getch();
+           return 1;}
+           
+    F=(float)(fact(n)*fact(m))/(fact(n+m));
+    
+    cout<<"F(m,n)="<<F;
+    
+    getch();
+    return 0;
+}

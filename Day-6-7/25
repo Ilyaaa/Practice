@@ -1,0 +1,68 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+ 
+int main(int argc, char* argv[])
+{
+   char oldWord[20], newWord[20], fileNameIn[250], fileNameOut[250];
+   char buf[50];
+   int sym, j;
+   FILE *f_in = NULL, *f_out = NULL;
+ 
+   printf("Vvedite imya vhodnogo fayla.\n> ");
+   scanf("%s", fileNameIn);
+   f_in = fopen(fileNameIn, "r");
+   if (!f_in)
+   {
+      printf("Error!! %s.\n", fileNameIn);
+      system("pause");
+      return 1;
+   }
+   printf("Vvedite imya vihodnogo fayla.\n> ");
+   scanf("%s", fileNameOut);
+   f_out = fopen(fileNameOut, "w");
+   if (!f_out)
+   {
+      printf("Error!! %s.\n", fileNameOut);
+      system("pause");
+      return 1;
+   }
+   printf("Vvedite iskomoe slovo.\n>");
+   scanf("%s", oldWord);
+   printf("Vvedite novoe	 slovo.\n>");
+   scanf("%s", newWord);
+   buf[0] = '\0';
+   j = 0;
+   while ((sym = fgetc(f_in)) != EOF)
+   {
+      if (ispunct(sym) || isspace(sym))
+      {
+         if (buf[0])
+         {
+            buf[j] = '\0';
+            if (!strcmp(oldWord, buf))
+               fputs(newWord, f_out);
+            else
+               fputs(buf, f_out);
+            buf[0] = '\0';
+            j = 0;
+         }
+         fputc(sym, f_out);
+      }
+      else
+         buf[j++] = sym;
+   }
+   if (buf[0])
+   {
+      buf[j] = '\0';
+      if (!strcmp(oldWord, buf))
+         fputs(newWord, f_out);
+      else
+         fputs(buf, f_out);
+   }
+   fclose(f_in);
+   fclose(f_out);
+   system("pause");
+   return 0;
+}
